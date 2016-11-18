@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PopModelView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="e9m-4j-OjJ">
+                    <rect key="frame" x="0.0" y="0.0" width="160" height="480"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="MZA-rB-W6M"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="eGS-6X-llU"/>
+                    </connections>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sWN-HK-mff">
+                    <rect key="frame" x="160" y="0.0" width="160" height="480"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="vwU-qp-GPm"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="EiP-RM-X1j"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="sWN-HK-mff" firstAttribute="leading" secondItem="e9m-4j-OjJ" secondAttribute="trailing" id="8tP-SN-jsh"/>
+                <constraint firstItem="e9m-4j-OjJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Loy-ic-qOD"/>
+                <constraint firstItem="sWN-HK-mff" firstAttribute="leading" secondItem="e9m-4j-OjJ" secondAttribute="trailing" id="QHC-G3-NAq"/>
+                <constraint firstAttribute="bottom" secondItem="sWN-HK-mff" secondAttribute="bottom" id="SkB-KZ-9e5"/>
+                <constraint firstItem="e9m-4j-OjJ" firstAttribute="width" secondItem="sWN-HK-mff" secondAttribute="width" id="Sw0-AH-PCf"/>
+                <constraint firstAttribute="trailing" secondItem="sWN-HK-mff" secondAttribute="trailing" id="Yb2-7c-6Gl"/>
+                <constraint firstAttribute="bottom" secondItem="e9m-4j-OjJ" secondAttribute="bottom" id="aKJ-JG-fq9"/>
+                <constraint firstItem="e9m-4j-OjJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fPR-uH-NAN"/>
+                <constraint firstItem="sWN-HK-mff" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sOa-YG-PlF"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="leftTableView" destination="e9m-4j-OjJ" id="a7x-gt-Nw9"/>
+                <outlet property="rightTableView" destination="sWN-HK-mff" id="LXT-Fo-O1u"/>
+            </connections>
+        </view>
+    </objects>
+</document>
