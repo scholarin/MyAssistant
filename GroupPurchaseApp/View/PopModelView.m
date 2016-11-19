@@ -54,6 +54,10 @@
         self.typeModel = self.typeModelArray[indexPath.row];
         cell.textLabel.text = self.typeModel.name;
         cell.imageView.image = [UIImage imageNamed: self.typeModel.small_highlighted_icon];
+        //当为左侧第一行时不能被选中
+        if(indexPath.row == 0 ){
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
         if(self.typeModel.subcategories.count > 0){
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
@@ -68,18 +72,26 @@
 
 #pragma  mark - delegate
 
+
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    self.typeModel = self.typeModelArray[indexPath.row];
+    if(tableView == self.leftTableView){
+           self.typeModel = self.typeModelArray[indexPath.row];
+    //选中情况下改变其图片
     cell.imageView.image = [UIImage imageNamed:self.typeModel.small_icon];
     self.selectedLeftRow = indexPath.row;
-    [self.rightTableView reloadData];
+            [self.rightTableView reloadData];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    self.typeModel = self.typeModelArray[indexPath.row];
-    cell.imageView.image = [UIImage imageNamed: self.typeModel.small_highlighted_icon];
+    if(tableView == self.leftTableView){
+        self.typeModel = self.typeModelArray[indexPath.row];
+        cell.imageView.image = [UIImage imageNamed: self.typeModel.small_highlighted_icon];
+    }
 }
 @end

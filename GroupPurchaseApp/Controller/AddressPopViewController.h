@@ -1,5 +1,5 @@
 //
-//  PopViewController.h
+//  AddressPopViewController.h
 //  GroupPurchaseApp
 //
 //  Created by Apple2 on 2016/11/19.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PopViewController : UIViewController
+@interface AddressPopViewController : UIViewController
 
 @end

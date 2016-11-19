@@ -6,14 +6,14 @@
 //  Copyright © 2016年 Mosin Nagant. All rights reserved.
 //
 
-#import "PopViewController.h"
+#import "TypePopViewController.h"
 #import "PopModelView.h"
 #import "TypeModel.h"
-@interface PopViewController ()
+@interface TypePopViewController ()
 
 @end
 
-@implementation PopViewController
+@implementation TypePopViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,10 +21,13 @@
     PopModelView *popModelView = [PopModelView makePopView];
     TypeModel *typeModel = [[TypeModel alloc]init];
     popModelView.typeModelArray = [typeModel getData];
+    
+    //根据父视图自动调整缩放的属性，如果设置为YES，很可能不显示
     popModelView.autoresizingMask = NO;
     [self.view addSubview:popModelView];
-    NSLog(@"%f,%f,%f,%f",self.view.bounds.origin.x,self.view.bounds.origin.y,self.view.bounds.size.width,self.view.bounds.size.height);
     
+    //设置当前view的preferred值，适应popView；
+    self.preferredContentSize = CGSizeMake(popModelView.frame.size.width,popModelView.frame.size.height);
     // Do any additional setup after loading the view.
 }
 

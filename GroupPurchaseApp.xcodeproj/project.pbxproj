@@ -13,7 +13,7 @@
 		20DEF5481DDF49D900D4B5FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20DEF5461DDF49D900D4B5FC /* LaunchScreen.storyboard */; };
 		20DEF57A1DDF7D1600D4B5FC /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF56D1DDF7D1600D4B5FC /* MainNavigationController.m */; };
 		20DEF57B1DDF7D1600D4B5FC /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF56F1DDF7D1600D4B5FC /* MainViewController.m */; };
-		20DEF57C1DDF7D1600D4B5FC /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF5711DDF7D1600D4B5FC /* PopViewController.m */; };
+		20DEF57C1DDF7D1600D4B5FC /* TypePopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF5711DDF7D1600D4B5FC /* TypePopViewController.m */; };
 		20DEF57D1DDF7D1600D4B5FC /* MainBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF5751DDF7D1600D4B5FC /* MainBarButtonItem.m */; };
 		20DEF57E1DDF7D1600D4B5FC /* MainBarButtonItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DEF5761DDF7D1600D4B5FC /* MainBarButtonItem.xib */; };
 		20DEF5861DDF7D8300D4B5FC /* categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20DEF5821DDF7D8300D4B5FC /* categories.plist */; };
@@ -23,6 +23,13 @@
 		20DEF5971DDF89FB00D4B5FC /* PopModelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF5951DDF89FB00D4B5FC /* PopModelView.m */; };
 		20DEF5981DDF89FB00D4B5FC /* PopModelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DEF5961DDF89FB00D4B5FC /* PopModelView.xib */; };
 		20DEF59B1DDF8E6600D4B5FC /* TypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF59A1DDF8E6600D4B5FC /* TypeModel.m */; };
+		20DEF59F1DE00F0500D4B5FC /* AddressPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF59D1DE00F0500D4B5FC /* AddressPopViewController.m */; };
+		20DEF5A01DE00F0500D4B5FC /* AddressPopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DEF59E1DE00F0500D4B5FC /* AddressPopViewController.xib */; };
+		20DEF5A31DE013D700D4B5FC /* CityGroupsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF5A21DE013D700D4B5FC /* CityGroupsModel.m */; };
+		20DEF5A71DE0220500D4B5FC /* ChangeCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF5A51DE0220500D4B5FC /* ChangeCityViewController.m */; };
+		20DEF5A81DE0220500D4B5FC /* ChangeCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DEF5A61DE0220500D4B5FC /* ChangeCityViewController.xib */; };
+		20DEF5AB1DE0340600D4B5FC /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF5AA1DE0340600D4B5FC /* SearchResultController.m */; };
+		20DEF5AF1DE0378C00D4B5FC /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF5AE1DE0378C00D4B5FC /* UIView+AutoLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,8 +44,8 @@
 		20DEF56D1DDF7D1600D4B5FC /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		20DEF56E1DDF7D1600D4B5FC /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		20DEF56F1DDF7D1600D4B5FC /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		20DEF5701DDF7D1600D4B5FC /* PopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewController.h; sourceTree = "<group>"; };
-		20DEF5711DDF7D1600D4B5FC /* PopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopViewController.m; sourceTree = "<group>"; };
+		20DEF5701DDF7D1600D4B5FC /* TypePopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypePopViewController.h; sourceTree = "<group>"; };
+		20DEF5711DDF7D1600D4B5FC /* TypePopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypePopViewController.m; sourceTree = "<group>"; };
 		20DEF5741DDF7D1600D4B5FC /* MainBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainBarButtonItem.h; sourceTree = "<group>"; };
 		20DEF5751DDF7D1600D4B5FC /* MainBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainBarButtonItem.m; sourceTree = "<group>"; };
 		20DEF5761DDF7D1600D4B5FC /* MainBarButtonItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainBarButtonItem.xib; sourceTree = "<group>"; };
@@ -51,6 +58,18 @@
 		20DEF5961DDF89FB00D4B5FC /* PopModelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopModelView.xib; sourceTree = "<group>"; };
 		20DEF5991DDF8E6600D4B5FC /* TypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeModel.h; sourceTree = "<group>"; };
 		20DEF59A1DDF8E6600D4B5FC /* TypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeModel.m; sourceTree = "<group>"; };
+		20DEF59C1DE00F0500D4B5FC /* AddressPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressPopViewController.h; sourceTree = "<group>"; };
+		20DEF59D1DE00F0500D4B5FC /* AddressPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressPopViewController.m; sourceTree = "<group>"; };
+		20DEF59E1DE00F0500D4B5FC /* AddressPopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressPopViewController.xib; sourceTree = "<group>"; };
+		20DEF5A11DE013D700D4B5FC /* CityGroupsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityGroupsModel.h; sourceTree = "<group>"; };
+		20DEF5A21DE013D700D4B5FC /* CityGroupsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityGroupsModel.m; sourceTree = "<group>"; };
+		20DEF5A41DE0220500D4B5FC /* ChangeCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeCityViewController.h; sourceTree = "<group>"; };
+		20DEF5A51DE0220500D4B5FC /* ChangeCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeCityViewController.m; sourceTree = "<group>"; };
+		20DEF5A61DE0220500D4B5FC /* ChangeCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeCityViewController.xib; sourceTree = "<group>"; };
+		20DEF5A91DE0340600D4B5FC /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
+		20DEF5AA1DE0340600D4B5FC /* SearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultController.m; sourceTree = "<group>"; };
+		20DEF5AD1DE0378C00D4B5FC /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		20DEF5AE1DE0378C00D4B5FC /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +102,7 @@
 		20DEF5371DDF49D900D4B5FC /* GroupPurchaseApp */ = {
 			isa = PBXGroup;
 			children = (
+				20DEF5AC1DE0378C00D4B5FC /* extension */,
 				20DEF56B1DDF7D1600D4B5FC /* Controller */,
 				20DEF5721DDF7D1600D4B5FC /* Model */,
 				20DEF5731DDF7D1600D4B5FC /* View */,
@@ -112,8 +132,16 @@
 				20DEF56D1DDF7D1600D4B5FC /* MainNavigationController.m */,
 				20DEF56E1DDF7D1600D4B5FC /* MainViewController.h */,
 				20DEF56F1DDF7D1600D4B5FC /* MainViewController.m */,
-				20DEF5701DDF7D1600D4B5FC /* PopViewController.h */,
-				20DEF5711DDF7D1600D4B5FC /* PopViewController.m */,
+				20DEF5701DDF7D1600D4B5FC /* TypePopViewController.h */,
+				20DEF5711DDF7D1600D4B5FC /* TypePopViewController.m */,
+				20DEF59C1DE00F0500D4B5FC /* AddressPopViewController.h */,
+				20DEF59D1DE00F0500D4B5FC /* AddressPopViewController.m */,
+				20DEF59E1DE00F0500D4B5FC /* AddressPopViewController.xib */,
+				20DEF5A41DE0220500D4B5FC /* ChangeCityViewController.h */,
+				20DEF5A51DE0220500D4B5FC /* ChangeCityViewController.m */,
+				20DEF5A61DE0220500D4B5FC /* ChangeCityViewController.xib */,
+				20DEF5A91DE0340600D4B5FC /* SearchResultController.h */,
+				20DEF5AA1DE0340600D4B5FC /* SearchResultController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -123,6 +151,8 @@
 			children = (
 				20DEF5991DDF8E6600D4B5FC /* TypeModel.h */,
 				20DEF59A1DDF8E6600D4B5FC /* TypeModel.m */,
+				20DEF5A11DE013D700D4B5FC /* CityGroupsModel.h */,
+				20DEF5A21DE013D700D4B5FC /* CityGroupsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +179,15 @@
 				20DEF5851DDF7D8300D4B5FC /* sorts.plist */,
 			);
 			path = PlistData;
+			sourceTree = "<group>";
+		};
+		20DEF5AC1DE0378C00D4B5FC /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				20DEF5AD1DE0378C00D4B5FC /* UIView+AutoLayout.h */,
+				20DEF5AE1DE0378C00D4B5FC /* UIView+AutoLayout.m */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,12 +250,14 @@
 			files = (
 				20DEF5891DDF7D8300D4B5FC /* sorts.plist in Resources */,
 				20DEF57E1DDF7D1600D4B5FC /* MainBarButtonItem.xib in Resources */,
+				20DEF5A01DE00F0500D4B5FC /* AddressPopViewController.xib in Resources */,
 				20DEF5481DDF49D900D4B5FC /* LaunchScreen.storyboard in Resources */,
 				20DEF5881DDF7D8300D4B5FC /* cityGroups.plist in Resources */,
 				20DEF5871DDF7D8300D4B5FC /* cities.plist in Resources */,
 				20DEF5861DDF7D8300D4B5FC /* categories.plist in Resources */,
 				20DEF5981DDF89FB00D4B5FC /* PopModelView.xib in Resources */,
 				20DEF5451DDF49D900D4B5FC /* Assets.xcassets in Resources */,
+				20DEF5A81DE0220500D4B5FC /* ChangeCityViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,10 +269,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				20DEF53D1DDF49D900D4B5FC /* AppDelegate.m in Sources */,
+				20DEF59F1DE00F0500D4B5FC /* AddressPopViewController.m in Sources */,
+				20DEF5A71DE0220500D4B5FC /* ChangeCityViewController.m in Sources */,
 				20DEF59B1DDF8E6600D4B5FC /* TypeModel.m in Sources */,
-				20DEF57C1DDF7D1600D4B5FC /* PopViewController.m in Sources */,
+				20DEF57C1DDF7D1600D4B5FC /* TypePopViewController.m in Sources */,
+				20DEF5AF1DE0378C00D4B5FC /* UIView+AutoLayout.m in Sources */,
 				20DEF53A1DDF49D900D4B5FC /* main.m in Sources */,
 				20DEF57A1DDF7D1600D4B5FC /* MainNavigationController.m in Sources */,
+				20DEF5A31DE013D700D4B5FC /* CityGroupsModel.m in Sources */,
+				20DEF5AB1DE0340600D4B5FC /* SearchResultController.m in Sources */,
 				20DEF5971DDF89FB00D4B5FC /* PopModelView.m in Sources */,
 				20DEF57B1DDF7D1600D4B5FC /* MainViewController.m in Sources */,
 				20DEF57D1DDF7D1600D4B5FC /* MainBarButtonItem.m in Sources */,

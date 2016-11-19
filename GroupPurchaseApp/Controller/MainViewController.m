@@ -8,7 +8,8 @@
 
 #import "MainViewController.h"
 #import "MainBarButtonItem.h"
-#import "PopViewController.h"
+#import "TypePopViewController.h"
+#import "AddressPopViewController.h"
 
 
 @interface MainViewController (){
@@ -60,14 +61,18 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)typeItemClick{
     
-    PopViewController *controller = [[PopViewController alloc]init];
+    TypePopViewController *controller = [[TypePopViewController alloc]init];
     UIPopoverController *popController = [[UIPopoverController alloc]initWithContentViewController:controller];
     
     [popController presentPopoverFromBarButtonItem:_typeItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-    NSLog(@"1");
-}
+    }
 
 - (void)addressItemClick{
+    AddressPopViewController *addPop = [[AddressPopViewController alloc]init];
+    
+    UIPopoverController *addressPopController = [[UIPopoverController alloc]initWithContentViewController:addPop];
+    [addressPopController presentPopoverFromBarButtonItem:_addressItem permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
     NSLog(@"2");
 }
 
