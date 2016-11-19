@@ -18,11 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    CityGroupsModel *cityGroup = [[CityGroupsModel alloc]init];
-    NSArray* array = [cityGroup getCityGroups];
-    for(CityGroupsModel *cG in array){
-        NSLog(@"%@",cG.grouptitle);
-    }
     
     // Do any additional setup after loading the view from its nib.
 }

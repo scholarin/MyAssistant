@@ -16,21 +16,22 @@
     NSArray *array = [NSArray arrayWithContentsOfFile:fileURL];
     
     NSMutableArray *mutableArray = [[NSMutableArray alloc]init];
+    
     for(NSDictionary *dic in array){
-        
         [mutableArray addObject:[self modelDictionary:dic]];
     }
+    
     return mutableArray;
 }
 
 -(TypeModel *)modelDictionary:(NSDictionary *)dic{
     TypeModel *typeModel = [[TypeModel alloc]init];
-    typeModel.name = dic[@"name"];
-    typeModel.icon = dic[@"icon"];
-    typeModel.highlighted_icon = dic[@"highlighted_icon"];
-    typeModel.small_icon = dic[@"small_icon"];
+    typeModel.name              = dic[@"name"];
+    typeModel.icon              = dic[@"icon"];
+    typeModel.highlighted_icon  = dic[@"highlighted_icon"];
+    typeModel.small_icon        = dic[@"small_icon"];
     typeModel.small_highlighted_icon = dic[@"small_highlighted_icon"];
-    typeModel.subcategories = dic[@"subcategories"];
+    typeModel.subcategories     = dic[@"subcategories"];
     
     return typeModel;
 }

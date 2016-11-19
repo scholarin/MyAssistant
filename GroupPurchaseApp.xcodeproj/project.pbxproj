@@ -30,6 +30,7 @@
 		20DEF5A81DE0220500D4B5FC /* ChangeCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DEF5A61DE0220500D4B5FC /* ChangeCityViewController.xib */; };
 		20DEF5AB1DE0340600D4B5FC /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF5AA1DE0340600D4B5FC /* SearchResultController.m */; };
 		20DEF5AF1DE0378C00D4B5FC /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF5AE1DE0378C00D4B5FC /* UIView+AutoLayout.m */; };
+		20DEF5B21DE042BB00D4B5FC /* CitiesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DEF5B11DE042BB00D4B5FC /* CitiesModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,8 @@
 		20DEF5AA1DE0340600D4B5FC /* SearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultController.m; sourceTree = "<group>"; };
 		20DEF5AD1DE0378C00D4B5FC /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
 		20DEF5AE1DE0378C00D4B5FC /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
+		20DEF5B01DE042BB00D4B5FC /* CitiesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitiesModel.h; sourceTree = "<group>"; };
+		20DEF5B11DE042BB00D4B5FC /* CitiesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitiesModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 				20DEF59A1DDF8E6600D4B5FC /* TypeModel.m */,
 				20DEF5A11DE013D700D4B5FC /* CityGroupsModel.h */,
 				20DEF5A21DE013D700D4B5FC /* CityGroupsModel.m */,
+				20DEF5B01DE042BB00D4B5FC /* CitiesModel.h */,
+				20DEF5B11DE042BB00D4B5FC /* CitiesModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				20DEF59F1DE00F0500D4B5FC /* AddressPopViewController.m in Sources */,
 				20DEF5A71DE0220500D4B5FC /* ChangeCityViewController.m in Sources */,
 				20DEF59B1DDF8E6600D4B5FC /* TypeModel.m in Sources */,
+				20DEF5B21DE042BB00D4B5FC /* CitiesModel.m in Sources */,
 				20DEF57C1DDF7D1600D4B5FC /* TypePopViewController.m in Sources */,
 				20DEF5AF1DE0378C00D4B5FC /* UIView+AutoLayout.m in Sources */,
 				20DEF53A1DDF49D900D4B5FC /* main.m in Sources */,

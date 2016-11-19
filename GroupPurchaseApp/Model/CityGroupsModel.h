@@ -10,7 +10,7 @@
 
 @interface CityGroupsModel : NSObject
 
-@property (copy,nonatomic) NSString* grouptitle;
-@property (strong,nonatomic) NSArray* groupCitys;
+@property (copy, nonatomic)     NSString *grouptitle;
+@property (strong,nonatomic)    NSArray  *groupCitys;
 - (NSArray *)getCityGroups;
 @end

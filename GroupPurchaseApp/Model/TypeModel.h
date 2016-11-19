@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface TypeModel : UIView
-@property (copy,nonatomic) NSString* name;
-@property (copy,nonatomic) NSString* icon;
-@property (copy,nonatomic) NSString* highlighted_icon;
-@property (copy,nonatomic) NSString* small_icon;
-@property (copy,nonatomic) NSString* small_highlighted_icon;
+@property (copy,nonatomic)  NSString *name;
+@property (copy,nonatomic)  NSString *icon;
+@property (copy,nonatomic)  NSString *highlighted_icon;
+@property (copy,nonatomic)  NSString *small_icon;
+@property (copy,nonatomic)  NSString *small_highlighted_icon;
 @property (strong,nonatomic) NSArray *subcategories;
 
 - (NSArray *)getData;

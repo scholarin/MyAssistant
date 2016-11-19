@@ -7,16 +7,20 @@
 //
 
 #import "SearchResultController.h"
+#import "CitiesModel.h"
 
 @interface SearchResultController ()
-
+{
+    NSArray *_citiesArray;
+}
+@property (strong, nonatomic)NSArray *searchedArray;
 @end
 
 @implementation SearchResultController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -29,27 +33,44 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setSearchText:(NSString *)searchText{
+    _searchText = [searchText lowercaseString];
+    if(!_citiesArray){
+        _citiesArray = [CitiesModel getCities];
+    }
+    NSMutableArray *searchedMutableArray = [[NSMutableArray alloc]init];
+    for(CitiesModel *cities  in _citiesArray){
+        if([cities.name containsString:_searchText] || [cities.pinYin containsString:_searchText] || [cities.pinYinHead containsString:_searchText]){
+            [searchedMutableArray addObject:cities];
+        }
+    }
+    _searchedArray = searchedMutableArray;
+    [self.tableView reloadData];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return self.searchedArray.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    static NSString *cellID = @"searchedCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if(cell == nil){
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    CitiesModel *citiesModel = [[CitiesModel alloc]init];
+    citiesModel = self.searchedArray[indexPath.row];
+    cell.textLabel.text = citiesModel.name;
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

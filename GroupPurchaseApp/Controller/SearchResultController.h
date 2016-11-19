@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SearchResultController : UITableViewController
-
+@property (copy,nonatomic) NSString* searchText;
 @end

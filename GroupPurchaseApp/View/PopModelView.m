@@ -79,11 +79,13 @@
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if(tableView == self.leftTableView){
+        
            self.typeModel = self.typeModelArray[indexPath.row];
+        
     //选中情况下改变其图片
     cell.imageView.image = [UIImage imageNamed:self.typeModel.small_icon];
     self.selectedLeftRow = indexPath.row;
-            [self.rightTableView reloadData];
+    [self.rightTableView reloadData];
     }
 }
 
