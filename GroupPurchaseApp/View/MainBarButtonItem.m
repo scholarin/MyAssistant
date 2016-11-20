@@ -16,6 +16,7 @@
 //@property (weak, nonatomic) IBOutlet UILabel *subLabel;
 @property (weak, nonatomic) IBOutlet UIButton *buttonItem;
 
+
 @end
 @implementation MainBarButtonItem
 
@@ -25,6 +26,11 @@
 
 - (void)addTarget:(id)target action:(SEL)action{
     [self.buttonItem addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)setCateory:(NSString *)cateory type:(NSString *)type{
+    self.cateoryLabel.text = cateory;
+    self.typeLabel.text = type;
 }
 //尝试使用类方法直接展示Item的各小图标
 //- (instancetype)initWithImageName:(NSString *)imageName andMainString:(NSString *)string andSubString:(NSString *)subString{

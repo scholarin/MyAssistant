@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface MainBarButtonItem : UIView
+@property (weak, nonatomic) IBOutlet UILabel *cateoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 +(instancetype)shareButtonItem;
 
 - (void)addTarget:(id)target action:(SEL)action;
-
+- (void)setCateory:(NSString *)cateory type:(NSString *)type;
 @end

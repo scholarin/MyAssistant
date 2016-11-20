@@ -71,7 +71,15 @@
     return cell;
 }
 
-
+#pragma  mark - tableViewdelegate 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *city = cell.textLabel.text;
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"changeAddress"
+                                                       object:nil
+                                                     userInfo:@{@"city":city}];
+    
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

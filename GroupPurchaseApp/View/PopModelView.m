@@ -12,8 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *leftTableView;
 @property (weak, nonatomic) IBOutlet UITableView *rightTableView;
-@property (strong ,nonatomic)TypeModel *typeModel;
-@property (assign ,nonatomic)NSInteger selectedLeftRow;
+@property (assign ,nonatomic,readwrite) NSInteger selectedRow;
 
 @end
 @implementation PopModelView
@@ -25,7 +24,6 @@
 #pragma  mark - datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    
     return 1;
 }
 
@@ -33,12 +31,11 @@
     
     NSInteger rows;
     if(tableView == self.leftTableView){
-        rows = self.typeModelArray.count;
+        rows = [self.dataSource numberOfRowsInLeftPopModelView:self];
 
     }else{
-        self.typeModel = self.typeModelArray[self.selectedLeftRow];
-        rows = self.typeModel.subcategories.count;
-        
+        NSArray *array = [self.dataSource arrayWithRightPopModelView:self];
+        rows = array.count;
     }
     return rows;
 }
@@ -51,20 +48,22 @@
     }
     
     if(tableView == self.leftTableView){
-        self.typeModel = self.typeModelArray[indexPath.row];
-        cell.textLabel.text = self.typeModel.name;
-        cell.imageView.image = [UIImage imageNamed: self.typeModel.small_highlighted_icon];
-        //当为左侧第一行时不能被选中
-        if(indexPath.row == 0 ){
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.text = [self.dataSource textOfCellForPopModelView:self atRow:indexPath.row];
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        if([self.dataSource respondsToSelector:@selector(imageOfCellForPopModelView:atRow:)]){
+            cell.imageView.image = [UIImage imageNamed:[self.dataSource imageOfCellForPopModelView:self atRow:indexPath.row]];
         }
-        if(self.typeModel.subcategories.count > 0){
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        if([self.dataSource respondsToSelector:@selector(hasSubcategoriesForPopModelView:atRow:)]){
+            BOOL hasSubcategories = [self.dataSource hasSubcategoriesForPopModelView:self atRow:indexPath.row];
+            if(hasSubcategories){
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            }
         }
        
     }else{
-        self.typeModel = self.typeModelArray[self.selectedLeftRow];
-        cell.textLabel.text = self.typeModel.subcategories[indexPath.row];
+        NSArray *array = [self.dataSource arrayWithRightPopModelView:self];
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.textLabel.text = array[indexPath.row];
     }
     return cell;
     
@@ -77,23 +76,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if(tableView == self.leftTableView){
-        
-           self.typeModel = self.typeModelArray[indexPath.row];
-        
-    //选中情况下改变其图片
-    cell.imageView.image = [UIImage imageNamed:self.typeModel.small_icon];
-    self.selectedLeftRow = indexPath.row;
-    [self.rightTableView reloadData];
+        self.selectedRow = indexPath.row;
+        [self.rightTableView reloadData];
+        //判断代理是否响应此方法
+        if([self.delegate respondsToSelector:@selector(didSelectedLeftPopModelView:atRow:)]){
+            [self.delegate didSelectedLeftPopModelView:self atRow:indexPath.row];
+        }
+    }else{
+        if([self.delegate respondsToSelector:@selector(didSelectedRightPopModelView:atRow:)]){
+            [self.delegate didSelectedRightPopModelView:self atRow:indexPath.row];
+        }
     }
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if(tableView == self.leftTableView){
-        self.typeModel = self.typeModelArray[indexPath.row];
-        cell.imageView.image = [UIImage imageNamed: self.typeModel.small_highlighted_icon];
-    }
-}
+//- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    if(tableView == self.leftTableView){
+//        self.typeModel = self.typeModelArray[indexPath.row];
+//        cell.imageView.image = [UIImage imageNamed: self.typeModel.small_highlighted_icon];
+//    }
+//}
 @end

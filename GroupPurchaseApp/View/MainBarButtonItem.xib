@@ -40,7 +40,8 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byt-2h-eug">
                     <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
                     <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" image="icon_sort"/>
+                    <state key="normal" image="icon_sort_highlighted"/>
+                    <state key="highlighted" image="icon_sort"/>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -62,11 +63,14 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="buttonItem" destination="byt-2h-eug" id="Ooh-7A-tXs"/>
+                <outlet property="cateoryLabel" destination="LPw-cE-2YI" id="Z4N-Id-eDP"/>
+                <outlet property="typeLabel" destination="oMV-E9-87x" id="3YN-C8-MpJ"/>
             </connections>
             <point key="canvasLocation" x="-90" y="-243"/>
         </view>
     </objects>
     <resources>
         <image name="icon_sort" width="30" height="30"/>
+        <image name="icon_sort_highlighted" width="30" height="30"/>
     </resources>
 </document>

@@ -76,12 +76,25 @@
     return cell;
 }
 
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     _cityGroup = self.CityGroupArray[section];
     return _cityGroup.grouptitle;
 }
 
-#pragma  makr - searchBarDelegate
+
+//选中后获取cell的text值并发送通知
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *city = cell.textLabel.text ;
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"changeAddress"
+                                                       object:nil
+                                                     userInfo:@{@"city":city}];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma  mark - searchBarDelegate
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.coverView.hidden = NO;
@@ -97,8 +110,10 @@
     if(searchText.length > 0){
         self.searchResultVC.view.hidden = NO;
         self.searchResultVC.searchText = searchText;
+        self.coverView.hidden = NO;
     }else{
         self.searchResultVC.view.hidden = YES;
+        self.coverView.hidden = YES;
     }
 }
 @end

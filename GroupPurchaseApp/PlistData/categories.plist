@@ -88,16 +88,12 @@
 		<key>subcategories</key>
 		<array>
 			<string>全部</string>
-			<string>经济型酒店</string>
+			<string>客栈旅社</string>
+			<string>商务酒店</string>
 			<string>公寓式酒店</string>
-			<string>四星级酒店</string>
-			<string>三星级酒店</string>
-			<string>五星级酒店</string>
-			<string>度假村</string>
-			<string>客栈旅舍</string>
-			<string>青年旅舍</string>
-			<string>农家院</string>
-			<string>精品酒店</string>
+			<string>快捷酒店</string>
+            <string>度假酒店</string>
+            <string>主题酒店</string>
 		</array>
 	</dict>
 	<dict>

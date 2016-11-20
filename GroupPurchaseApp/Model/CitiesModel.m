@@ -18,9 +18,16 @@
         cities.name         = dic[@"name"];
         cities.pinYin       = dic[@"pinYin"];
         cities.pinYinHead   = dic[@"pinYinHead"];
-        cities.regions      = dic[@"regions"];
+        NSArray *regionsArray = dic[@"regions"];
+        NSMutableArray *regions = [[NSMutableArray alloc]init];
+        for(NSDictionary *regionDic in regionsArray) {
+            NSString *region = regionDic[@"name"];
+            [regions addObject:region];
+        }
+        cities.regions = regions;
         [citiesArray addObject:cities];
     }
     return citiesArray;
 }
+
 @end

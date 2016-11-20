@@ -13,6 +13,6 @@
 @property (copy,nonatomic) NSString* pinYin;
 @property (copy,nonatomic) NSString* pinYinHead;
 @property (copy,nonatomic) NSArray * regions;
-
 + (NSArray *)getCities;
+
 @end
