@@ -12,52 +12,46 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" restorationIdentifier="MainBarButtonItem" id="iN0-l3-epB" customClass="MainBarButtonItem">
-            <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+            <rect key="frame" x="0.0" y="0.0" width="59" height="32"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPt-BI-r3k">
-                    <rect key="frame" x="5" y="5" width="1" height="30"/>
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPt-BI-r3k" userLabel="侧边线">
+                    <rect key="frame" x="5" y="10" width="1" height="22"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="1" id="eP3-H2-etj"/>
+                        <constraint firstAttribute="width" constant="1" id="OuA-jC-A80"/>
+                        <constraint firstAttribute="height" constant="22" id="i1Y-wc-4qL"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美食" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPw-cE-2YI">
-                    <rect key="frame" x="46" y="0.0" width="25" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="i7v-GJ-vpf"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="川菜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMV-E9-87x" userLabel="小分类">
+                    <rect key="frame" x="11" y="21" width="18.5" height="11"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="川菜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMV-E9-87x">
-                    <rect key="frame" x="46" y="22" width="35" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美食" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPw-cE-2YI" userLabel="大分类">
+                    <rect key="frame" x="11" y="8" width="17" height="10"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="8"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byt-2h-eug">
-                    <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byt-2h-eug" userLabel="点击按钮">
+                    <rect key="frame" x="0.0" y="0.0" width="59" height="32"/>
                     <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" image="icon_sort_highlighted"/>
-                    <state key="highlighted" image="icon_sort"/>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="LPw-cE-2YI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0gi-ah-gZW"/>
-                <constraint firstAttribute="bottom" secondItem="wPt-BI-r3k" secondAttribute="bottom" constant="5" id="223-ih-fm4"/>
-                <constraint firstItem="byt-2h-eug" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5lf-Rc-TLa"/>
-                <constraint firstAttribute="trailing" secondItem="byt-2h-eug" secondAttribute="trailing" id="8Yh-KF-UsX"/>
-                <constraint firstAttribute="bottom" secondItem="oMV-E9-87x" secondAttribute="bottom" id="Lho-T0-wvz"/>
-                <constraint firstItem="wPt-BI-r3k" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="MXh-fZ-Pc9"/>
-                <constraint firstItem="wPt-BI-r3k" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="QJ7-mF-Deb"/>
-                <constraint firstItem="oMV-E9-87x" firstAttribute="leading" secondItem="wPt-BI-r3k" secondAttribute="trailing" constant="40" id="WYS-9z-clR"/>
-                <constraint firstItem="byt-2h-eug" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ce2-3e-Wxt"/>
-                <constraint firstItem="LPw-cE-2YI" firstAttribute="leading" secondItem="wPt-BI-r3k" secondAttribute="trailing" constant="40" id="doo-ll-Esb"/>
-                <constraint firstItem="oMV-E9-87x" firstAttribute="top" secondItem="LPw-cE-2YI" secondAttribute="bottom" constant="1.5" id="fDw-lT-a2f"/>
-                <constraint firstAttribute="bottom" secondItem="byt-2h-eug" secondAttribute="bottom" id="w1j-CU-pKN"/>
+                <constraint firstItem="LPw-cE-2YI" firstAttribute="leading" secondItem="wPt-BI-r3k" secondAttribute="trailing" constant="5" id="3NN-Wg-vb1"/>
+                <constraint firstItem="wPt-BI-r3k" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="3as-wL-C7I"/>
+                <constraint firstItem="byt-2h-eug" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8TL-2w-gln"/>
+                <constraint firstAttribute="trailing" secondItem="byt-2h-eug" secondAttribute="trailing" id="BwM-Hk-pfO"/>
+                <constraint firstAttribute="bottom" secondItem="byt-2h-eug" secondAttribute="bottom" id="Lcs-YK-eCm"/>
+                <constraint firstAttribute="bottom" secondItem="wPt-BI-r3k" secondAttribute="bottom" id="ZhL-zH-mfa"/>
+                <constraint firstAttribute="bottom" secondItem="oMV-E9-87x" secondAttribute="bottom" id="grc-Ke-Fak"/>
+                <constraint firstItem="byt-2h-eug" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gx4-wh-ime"/>
+                <constraint firstItem="oMV-E9-87x" firstAttribute="top" secondItem="LPw-cE-2YI" secondAttribute="bottom" constant="3" id="mft-Yz-qhb"/>
+                <constraint firstItem="oMV-E9-87x" firstAttribute="leading" secondItem="wPt-BI-r3k" secondAttribute="trailing" constant="5" id="p6y-GD-amn"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -66,11 +60,7 @@
                 <outlet property="cateoryLabel" destination="LPw-cE-2YI" id="Z4N-Id-eDP"/>
                 <outlet property="typeLabel" destination="oMV-E9-87x" id="3YN-C8-MpJ"/>
             </connections>
-            <point key="canvasLocation" x="-90" y="-243"/>
+            <point key="canvasLocation" x="-65.5" y="-247"/>
         </view>
     </objects>
-    <resources>
-        <image name="icon_sort" width="30" height="30"/>
-        <image name="icon_sort_highlighted" width="30" height="30"/>
-    </resources>
 </document>

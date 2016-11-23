@@ -17,6 +17,7 @@
 @end
 @implementation PopModelView
 
+
 + (PopModelView *)makePopView{
     return [[[NSBundle mainBundle]loadNibNamed:@"PopModelView" owner:self options:nil]firstObject];
 }

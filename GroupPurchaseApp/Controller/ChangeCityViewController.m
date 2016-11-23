@@ -30,12 +30,25 @@
     _cityGroup = [[CityGroupsModel alloc]init];
     self.CityGroupArray = [_cityGroup getCityGroups];
     // Do any additional setup after loading the view from its nib.
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(isDismiss:) name:@"changeAddress" object:nil];
 }
 
 
 - (void)backToAddressVC{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+- (void)isDismiss:(NSNotification *)not{
+    self.isDismiss = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    if(self.isDismiss == YES){
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -90,6 +103,7 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:@"changeAddress"
                                                        object:nil
                                                      userInfo:@{@"city":city}];
+    NSLog(@"呵呵");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -115,5 +129,11 @@
         self.searchResultVC.view.hidden = YES;
         self.coverView.hidden = YES;
     }
+}
+
+
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 @end

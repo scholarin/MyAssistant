@@ -79,6 +79,8 @@
                                                        object:nil
                                                      userInfo:@{@"city":city}];
     
+    
+    [self.view.superview removeFromSuperview];
 }
 /*
 // Override to support conditional editing of the table view.

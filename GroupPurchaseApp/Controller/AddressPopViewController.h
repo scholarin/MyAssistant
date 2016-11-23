@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface AddressPopViewController : UIViewController
-
+@property(assign, nonatomic)BOOL isDismiss;
 @end

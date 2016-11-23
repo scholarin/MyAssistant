@@ -12,26 +12,52 @@
 #import "CitiesModel.h"
 #import "PopModelView.h"
 
+#import "Masonry.h"
+
 @interface AddressPopViewController ()<PopModelViewDataSource,PopModelViewDelegate>
 @property (strong, nonatomic) PopModelView *addressPopModelView;
 @property (strong, nonatomic) NSArray *citiesArray;
+@property (weak, nonatomic) IBOutlet UIView *switchCity;
 @end
 
 @implementation AddressPopViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.isDismiss = NO;
     self.addressPopModelView = [PopModelView makePopView];
     self.addressPopModelView.dataSource = self;
     self.addressPopModelView.delegate = self;
     self.addressPopModelView.autoresizingMask = NO;
-    self.addressPopModelView.frame = CGRectMake(0, 44, 320, 400);
+    self.addressPopModelView.frame = [UIScreen mainScreen].bounds;
     [self.view addSubview: self.addressPopModelView];
     
-    self.preferredContentSize = CGSizeMake(self.addressPopModelView.frame.size.width, self.addressPopModelView.frame.size.height);
+    
+    
+    [self.addressPopModelView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.switchCity.mas_bottom);
+        make.left.equalTo(self.view);
+        make.bottom.equalTo(self.view);
+        make.right.equalTo(self.view);
+    
+    }];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(toDismiss) name:@"changeAddress" object:nil];
     self.citiesArray = [CitiesModel getCities];
-    NSLog(@"%@",self.addressPopModelView);
     // Do any additional setup after loading the view from its nib.
+}
+
+
+- (void)toDismiss{
+#warning 这里的视图为什么不消失呢
+    NSLog(@"视图为什么不消失");
+    self.isDismiss = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    if(self.isDismiss == YES){
+        [self dismissViewControllerAnimated:YES completion:nil];
+    };
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +66,7 @@
 }
 - (IBAction)changeCity:(UIButton *)sender {
     ChangeCityViewController *changeCityVc = [[ChangeCityViewController alloc]init];
+
     MainNavigationController* nav = [[MainNavigationController alloc]initWithRootViewController:changeCityVc];
     
     //模态动画
@@ -50,7 +77,6 @@
 
 #pragma  mark - popmodel view datasource
 - (NSInteger)numberOfRowsInLeftPopModelView:(PopModelView *)popModelView{
-    NSLog(@"调用了mei");
     return self.citiesArray.count;
 }
 - (NSString *)textOfCellForPopModelView:(PopModelView *)popModelView atRow:(NSInteger)row{
@@ -92,4 +118,7 @@
 }
 */
 
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

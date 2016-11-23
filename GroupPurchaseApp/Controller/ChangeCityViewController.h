@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ChangeCityViewController : UIViewController
-
+@property (assign, nonatomic)BOOL isDismiss;
 @end

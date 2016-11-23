@@ -10,10 +10,12 @@
 #import "MainBarButtonItem.h"
 #import "TypePopViewController.h"
 #import "AddressPopViewController.h"
+#import "SortTableView.h"
+
 #import "DPAPI.h"
+
 #import "CommodityInformationData.h"
 #import "CommidityCollectionViewCell.h"
-#import "MJRefresh.h"
 #import "CommodityDetailViewController.h"
 
 @interface MainViewController ()<DPRequestDelegate>{
@@ -22,6 +24,7 @@
 @property (strong, nonatomic)NSMutableDictionary *requestDict;
 @property (strong, nonatomic)NSArray *commodityDataArray;
 @property (strong, nonatomic)UIRefreshControl *refresh;
+
 @end
 
 @implementation MainViewController
@@ -30,11 +33,10 @@ static NSString * const reuseIdentifier = @"CommidityCollectionViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
-    
     //下拉继续加载数据
     self.refresh = [[UIRefreshControl alloc]init];
     self.refresh.tintColor = [UIColor redColor];
@@ -49,11 +51,14 @@ static NSString * const reuseIdentifier = @"CommidityCollectionViewCell";
     // Do any additional setup after loading the view.
     
     [self addNavigationBarItems];
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(categoryChange:) name:@"changeCategory" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(typeChange:) name:@"changeType" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addressChange:) name:@"changeAddress" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(regionChange:) name:@"changeRegion" object:nil];
-
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sortChange:) name:@"sortChange" object:nil];
+    //遮罩层
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.alwaysBounceVertical = YES;
     
     [self createURLRequest];
@@ -72,7 +77,7 @@ static NSString * const reuseIdentifier = @"CommidityCollectionViewCell";
     dispatch_once(&onceToken, ^{
         _requestDict = [[NSMutableDictionary alloc]init];
         [_requestDict setObject:@"美食" forKey:@"category"];
-        [_requestDict setObject:@"上海" forKey:@"city"];
+        [_requestDict setObject:@"北京" forKey:@"city"];
         [_requestDict setObject:@1 forKey:@"sort"];
         [_requestDict setObject:@1 forKey:@"page"];
     });
@@ -88,6 +93,7 @@ static NSString * const reuseIdentifier = @"CommidityCollectionViewCell";
     //更改BarbuttonItem文字
     [self replaceBarButtonItemTitle:category subTitle:@"全部" target:@selector(typeItemClick) atIndex:1 ];
     [self createURLRequest];
+    
 }
 - (void)typeChange:(NSNotification *)not{
     NSString *category = not.userInfo[@"category"];
@@ -101,6 +107,8 @@ static NSString * const reuseIdentifier = @"CommidityCollectionViewCell";
     //更改Item文字
     [self replaceBarButtonItemTitle:category subTitle:type target:@selector(typeItemClick) atIndex:1];
     [self createURLRequest];
+    
+
 }
 
 - (void)addressChange:(NSNotification *)not{
@@ -109,7 +117,8 @@ static NSString * const reuseIdentifier = @"CommidityCollectionViewCell";
     [self.requestDict setObject:@1 forKey:@"page"];
     [self replaceBarButtonItemTitle:@"坐标" subTitle:address target:@selector(addressItemClick) atIndex:2];
     [self createURLRequest];
-    NSLog(@"%@",address);
+    
+    
 }
 
 - (void)regionChange:(NSNotification *)not{
@@ -119,13 +128,21 @@ static NSString * const reuseIdentifier = @"CommidityCollectionViewCell";
     [self.requestDict setObject:@1 forKey:@"page"];
     [self replaceBarButtonItemTitle:address subTitle:region target:@selector(addressItemClick) atIndex:2];
     [self createURLRequest];
+    
+}
+
+- (void)sortChange:(NSNotification *)not{
+    NSString *sortWay = not.userInfo[@"sortWay"];
+    [self.requestDict setObject:not.userInfo[@"sort"] forKey:@"sort"];
+    [self.requestDict setObject:@1 forKey:@"page"];
+    [self replaceBarButtonItemTitle:@"排序" subTitle:sortWay target:@selector(sortItemClick) atIndex:3];
+    [self createURLRequest];
 }
 //创建网络请求
 - (void)createURLRequest{
     
     DPAPI *api = [[DPAPI alloc]init];
     [api requestWithURL:@"v1/deal/find_deals" params:self.requestDict delegate:self];
-    NSLog(@"地址 = %@ ，分类 = %@" ,self.requestDict[@"city"],self.requestDict[@"category"]);
 }
 
 #pragma  mark - 顶端item创建
@@ -147,7 +164,7 @@ static NSString * const reuseIdentifier = @"CommidityCollectionViewCell";
     MainBarButtonItem *priorityItemView = [MainBarButtonItem shareButtonItem];
     priorityItemView.cateoryLabel.text = @"排序";
     priorityItemView.typeLabel.text = @"默认";
-    [priorityItemView addTarget:self action:@selector(priorityItemClick)];
+    [priorityItemView addTarget:self action:@selector(sortItemClick)];
     UIBarButtonItem *priorityItem = [[UIBarButtonItem alloc]initWithCustomView:priorityItemView];
     
     self.navigationItem.leftBarButtonItems = @[imageItem,typeItem,addressItem,priorityItem];
@@ -173,21 +190,21 @@ static NSString * const reuseIdentifier = @"CommidityCollectionViewCell";
 - (void)typeItemClick{
     
     TypePopViewController *controller = [[TypePopViewController alloc]init];
-    UIPopoverController *popController = [[UIPopoverController alloc]initWithContentViewController:controller];
-    [popController presentPopoverFromBarButtonItem:self.navigationItem.leftBarButtonItems[1] permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    controller.modalPresentationStyle = UIModalPresentationPopover;
+    controller.popoverPresentationController.barButtonItem = self.navigationItem.leftBarButtonItems[1];
+    [self presentViewController:controller animated:YES completion:nil];
  }
 
 - (void)addressItemClick{
     
     AddressPopViewController *addPop = [[AddressPopViewController alloc]init];
-    UIPopoverController *addressPopController = [[UIPopoverController alloc]initWithContentViewController:addPop];
-    [addressPopController presentPopoverFromBarButtonItem:self.navigationItem.leftBarButtonItems[2] permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-    
-    NSLog(@"2");
+    addPop.modalPresentationStyle = UIModalPresentationPopover;
+    addPop.popoverPresentationController.barButtonItem = self.navigationItem.leftBarButtonItems[2];
+    [self presentViewController:addPop animated:YES completion:nil];
 }
 
-- (void)priorityItemClick{
-    NSLog(@"3");
+- (void)sortItemClick{
+    [SortTableView showShareSortView];
 }
 
 #pragma  mark - 初始化
@@ -212,7 +229,6 @@ static NSString * const reuseIdentifier = @"CommidityCollectionViewCell";
     //通过屏幕旋转后的size 计算 inset 和 minimum line spacing
     int needless = (int)size.width % 300;
     int number = (int)size.width / 300;
-    NSLog(@"%d ,%d",needless,number);
     CGFloat inset = needless / (number + 1) ;
     layout.sectionInset  = UIEdgeInsetsMake(20, inset, 20, inset);
     layout.minimumLineSpacing = inset;
@@ -225,16 +241,12 @@ static NSString * const reuseIdentifier = @"CommidityCollectionViewCell";
 
 #pragma mark - DPrequest delegate
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{
-    //NSLog(@"%@",result);
     self.commodityDataArray = [CommodityInformationData getCommodityDataWithResult:(NSDictionary *)result];
-    //NSLog(@"%@ - %@ -%@ -%@ -%@ -%@ -%@ -%@ -%@ -%@",dataModel.title,dataModel.city,dataModel.h5_url,dataModel.current_price,dataModel.list_price,dataModel.s_image_url,dataModel.image_url,dataModel.purchase_count,dataModel.purchase_deadline,dataModel.describe);
     [self.collectionView reloadData];
     [self.refresh endRefreshing];
-    NSLog(@"更新数据");
 }
 
 - (void)request:(DPRequest *)request didFailWithError:(NSError *)error{
-
     NSLog(@"%@",error);
 }
 
@@ -242,7 +254,6 @@ static NSString * const reuseIdentifier = @"CommidityCollectionViewCell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    
     return 1;
 }
 

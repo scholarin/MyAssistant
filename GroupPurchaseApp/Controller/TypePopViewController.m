@@ -9,6 +9,7 @@
 #import "TypePopViewController.h"
 #import "PopModelView.h"
 #import "TypeModel.h"
+#import "Masonry.h"
 @interface TypePopViewController ()<PopModelViewDataSource,PopModelViewDelegate>{
     TypeModel *_typeModel;
 }
@@ -22,18 +23,21 @@
     [super viewDidLoad];
 
     
-   
+    self.view.backgroundColor = [UIColor whiteColor];
     _typeModel = [[TypeModel alloc]init];
     _typeArray =[_typeModel getData];
     //根据父视图自动调整缩放的属性，如果设置为YES，很可能不显示
     self.popModelView = [PopModelView makePopView];
-    self.popModelView.autoresizingMask = NO;
+    self.popModelView.autoresizingMask = YES;
     self.popModelView.dataSource = self;
     self.popModelView.delegate = self;
+    self.popModelView.frame  = [UIScreen mainScreen].bounds;
     [self.view addSubview:self.popModelView];
-    
+    UIEdgeInsets insets = UIEdgeInsetsMake(20, 0, 0, 0);
+    [self.popModelView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).insets(insets);
+    }];
     //设置当前view的preferred值，适应popView；
-    self.preferredContentSize = CGSizeMake(self.popModelView.frame.size.width,self.popModelView.frame.size.height);
      //Do any additional setup after loading the view.
 }
 
