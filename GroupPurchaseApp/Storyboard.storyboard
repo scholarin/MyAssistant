@@ -9,88 +9,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="TWE-0X-oQg">
+        <!--Table View Controller-->
+        <scene sceneID="JFG-1M-gHY">
             <objects>
-                <viewController id="BSV-dk-QXN" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="maV-60-qTe"/>
-                        <viewControllerLayoutGuide type="bottom" id="qMq-dE-qdw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cgd-mf-9J6">
+                <tableViewController id="5BT-2U-w1v" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="jlm-BR-8gY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="7xE-gt-esu">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="吃什么？" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hq4-3J-9U9">
-                                <rect key="frame" x="173" y="0.0" width="29" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <connections>
-                        <segue destination="3Da-bH-wdb" kind="show" id="U8M-oy-nBs"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I0p-YR-3Be" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-500" y="-76"/>
-        </scene>
-        <!--Root View Controller-->
-        <scene sceneID="OYD-KH-x3U">
-            <objects>
-                <tableViewController id="BS7-IH-1tw" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kqZ-f6-Q9x">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="esJ-1G-KEN">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="esJ-1G-KEN" id="fny-mY-eJp">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <segmentedControl key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="b7s-0L-4pv">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="" image="bg_navigationBar_normal"/>
+                                <segment title="Second"/>
+                                <segment title=""/>
+                                <segment title=""/>
+                            </segments>
+                            <color key="tintColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        </segmentedControl>
                         <connections>
-                            <outlet property="dataSource" destination="BS7-IH-1tw" id="dZR-bC-wmb"/>
-                            <outlet property="delegate" destination="BS7-IH-1tw" id="ubj-wS-c64"/>
+                            <outlet property="dataSource" destination="5BT-2U-w1v" id="XPQ-dU-Eiv"/>
+                            <outlet property="delegate" destination="5BT-2U-w1v" id="gRM-ok-ZZ4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="kSc-Ew-yT0"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qB5-ng-bsd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8SE-4h-YFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1231" y="-76"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="9mR-X8-AvM">
-            <objects>
-                <navigationController id="3Da-bH-wdb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ehP-K9-nD7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BS7-IH-1tw" kind="relationship" relationship="rootViewController" id="O2P-Ej-6rX"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ttf-8p-hKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="279" y="-76"/>
+            <point key="canvasLocation" x="-580" y="-172"/>
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchImage" width="375" height="667"/>
+        <image name="bg_navigationBar_normal" width="124" height="124"/>
     </resources>
 </document>

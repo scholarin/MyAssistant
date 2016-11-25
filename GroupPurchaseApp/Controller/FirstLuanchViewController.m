@@ -13,7 +13,7 @@
 #import "FirstLuanchViewController.h"
 #import "Masonry.h"
 #import "MainNavigationController.h"
-#import "MainViewController.h"
+#import "MainVCViewController.h"
 
 @interface FirstLuanchViewController ()<UIScrollViewDelegate>
 @property (strong, nonatomic)UIScrollView *scrollView;
@@ -124,7 +124,7 @@
 
 - (void)goMainView{
     
-    MainViewController *mainVC = [[MainViewController alloc]init];
+    MainVCViewController *mainVC = [[MainVCViewController alloc]init];
     MainNavigationController *mainNotVC = [[MainNavigationController alloc]initWithRootViewController:mainVC];
     [self presentViewController:mainNotVC animated:YES completion:nil];
     NSLog(@"BUTTON可以点击");

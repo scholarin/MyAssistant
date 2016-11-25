@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCateoryCollectionViewCell" id="gTV-IL-0wX" customClass="MainCateoryCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_category_highlighted_-1" translatesAutoresizingMaskIntoConstraints="NO" id="k36-Bd-LAK">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="SKA-qq-2Ie"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="酒店住宿" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPy-dc-Oft">
+                        <rect key="frame" x="0.0" y="50" width="50" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="J43-HP-xPd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="k36-Bd-LAK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="6Hi-8K-fTh"/>
+                <constraint firstItem="NPy-dc-Oft" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BnK-0f-tVI"/>
+                <constraint firstAttribute="trailing" secondItem="NPy-dc-Oft" secondAttribute="trailing" id="KDX-c3-AQd"/>
+                <constraint firstAttribute="trailing" secondItem="k36-Bd-LAK" secondAttribute="trailing" id="OKc-O5-LyG"/>
+                <constraint firstAttribute="bottom" secondItem="NPy-dc-Oft" secondAttribute="bottom" id="UlN-fp-fQe"/>
+                <constraint firstItem="k36-Bd-LAK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mGK-HD-Lxd"/>
+            </constraints>
+            <size key="customSize" width="50" height="48"/>
+            <connections>
+                <outlet property="categoryImage" destination="k36-Bd-LAK" id="3De-Gr-SxR"/>
+                <outlet property="categoryLabel" destination="NPy-dc-Oft" id="117-xX-mqL"/>
+            </connections>
+            <point key="canvasLocation" x="-145" y="-36"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icon_category_highlighted_-1" width="30" height="30"/>
+    </resources>
+</document>

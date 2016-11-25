@@ -16,5 +16,6 @@
 @property (copy,nonatomic)  NSString *small_highlighted_icon;
 @property (strong,nonatomic) NSArray *subcategories;
 
-- (NSArray *)getData;
++ (NSArray *)getData;
++ (NSArray *)getCategoryUseCollectionCell;
 @end

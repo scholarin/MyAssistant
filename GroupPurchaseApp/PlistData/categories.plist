@@ -92,8 +92,8 @@
 			<string>商务酒店</string>
 			<string>公寓式酒店</string>
 			<string>快捷酒店</string>
-            <string>度假酒店</string>
-            <string>主题酒店</string>
+			<string>度假酒店</string>
+			<string>主题酒店</string>
 		</array>
 	</dict>
 	<dict>
@@ -179,17 +179,17 @@
 	</dict>
 	<dict>
 		<key>map_icon</key>
-		<string>ic_category_3</string>
+		<string>ic_category_0</string>
 		<key>highlighted_icon</key>
-		<string>icon_category_highlighted_3</string>
+		<string>icon_category_highlighted_0</string>
 		<key>icon</key>
-		<string>icon_category_3</string>
+		<string>icon_category_0</string>
 		<key>name</key>
 		<string>结婚亲子</string>
 		<key>small_highlighted_icon</key>
-		<string>icon_filter_category_highlighted_3</string>
+		<string>icon_filter_category_highlighted_0</string>
 		<key>small_icon</key>
-		<string>icon_filter_category_3</string>
+		<string>icon_filter_category_0</string>
 		<key>subcategories</key>
 		<array>
 			<string>全部</string>

@@ -25,7 +25,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     _typeModel = [[TypeModel alloc]init];
-    _typeArray =[_typeModel getData];
+    _typeArray =[TypeModel getData];
     //根据父视图自动调整缩放的属性，如果设置为YES，很可能不显示
     self.popModelView = [PopModelView makePopView];
     self.popModelView.autoresizingMask = YES;

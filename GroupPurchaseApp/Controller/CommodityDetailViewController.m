@@ -8,12 +8,13 @@
 
 #import "CommodityDetailViewController.h"
 #import "UIImageView+WebCache.h"
+#import "WebDetailViewController.h"
+
 @interface CommodityDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *describeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -24,7 +25,6 @@
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.dataModel.image_url]];
     self.titleLabel.text = self.dataModel.title;
     self.describeLabel.text = self.dataModel.describe;
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.dataModel.h5_url]]];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -32,18 +32,27 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)backButton:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 - (IBAction)favoiteCommodity:(id)sender {
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    self.navigationController.navigationBarHidden = YES;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon_back_highlighted"] style:UIBarButtonItemStyleDone target:self action:@selector(goBack)];
+    self.navigationItem.leftBarButtonItem = item;
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"网页详情" style:UIBarButtonItemStyleDone target:self action:@selector(showDetail)] ;
+    rightItem.tintColor = [UIColor colorWithRed:51/255.0 green:204/255.0 blue:204/255.0 alpha:1];
+    self.navigationItem.rightBarButtonItem = rightItem;
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    self.navigationController.navigationBarHidden = NO;
+- (void)goBack{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)showDetail{
+    WebDetailViewController *webVC = [[WebDetailViewController alloc]init];
+    webVC.h5_url  = self.dataModel.h5_url;
+    [self.navigationController pushViewController:webVC animated:YES];
 }
 /*
 #pragma mark - Navigation
