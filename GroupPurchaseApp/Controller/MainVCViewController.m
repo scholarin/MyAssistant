@@ -285,7 +285,6 @@
         self.commoditiesListArray = [[CommodityInformationData getCommodityDataWithResult:result] mutableCopy];
     }
     self.isLoadMore = NO;
-    NSLog(@"%@",self.commoditiesListArray);
     [self.listTableView reloadData];
 }
 

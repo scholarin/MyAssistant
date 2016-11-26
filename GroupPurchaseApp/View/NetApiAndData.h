@@ -7,9 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CommodityInformationData.h"
+#import "GroupPurchaseAppHeader.h"
+#import "AFNetWorking.h"
 
 @interface NetApiAndData : NSObject
 
-- (void)request_CommditiesWith:(NSDictionary *)dict andBlcok:(void (^)(NSArray *commditiesListArray, NSError *error))block;
++ (instancetype)shareManager;
+
+- (void)requestJokeContentWithPage:(NSInteger)page returnData:(void (^)(id data, NSError *error))responseObject;
+- (void)requestNewsContentWithType:(NSInteger)typeNuber returnData:(void (^)(id data, NSError *error))responseObject;
+- (void)requestWechatContentWithType:(NSInteger)pageNumber returnData:(void (^)(id data, NSError *error))responseObject;
+- (void)requestHistoryTodayContentWithDate:(NSString *)data returnData:(void (^)(id data, NSError *error))responseObject;
+- (void)requestHistoryTodayDetailWithID:(NSString *)ID returnData:(void (^)(id data, NSError *error))responseObject;
 @end

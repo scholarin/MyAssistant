@@ -7,10 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "MainNavigationController.h"
-#import "MainVCViewController.h"
-
 #import "FirstLuanchViewController.h"
+#import "RootViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -23,16 +21,15 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     BOOL hasBeingStart = [[NSUserDefaults standardUserDefaults]boolForKey:@"hasBeingStart"];
     NSLog(@"%i",hasBeingStart);
+    
+   
     if( hasBeingStart){
-        MainVCViewController *vc = [[MainVCViewController alloc]init];
-        MainNavigationController *nav = [[MainNavigationController alloc]initWithRootViewController:vc];
-        self.window.rootViewController = nav;
+        RootViewController *rootViewController = [[RootViewController alloc]init];
+        self.window.rootViewController = rootViewController;
     }else{
         FirstLuanchViewController *firstVC = [[FirstLuanchViewController alloc]init];
         self.window.rootViewController = firstVC;
     }
-    
-    
     
     [self.window makeKeyAndVisible];
     

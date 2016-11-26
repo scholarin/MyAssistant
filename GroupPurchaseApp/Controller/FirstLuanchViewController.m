@@ -10,10 +10,12 @@
 #define kScreen_Width [UIScreen mainScreen].bounds.size.width
 #define kFitstLuanchImage @"LaunchImage"
 
+#import "GroupPurchaseAppHeader.h"
+
 #import "FirstLuanchViewController.h"
-#import "Masonry.h"
 #import "MainNavigationController.h"
 #import "MainVCViewController.h"
+#import "RootViewController.h"
 
 @interface FirstLuanchViewController ()<UIScrollViewDelegate>
 @property (strong, nonatomic)UIScrollView *scrollView;
@@ -124,10 +126,8 @@
 
 - (void)goMainView{
     
-    MainVCViewController *mainVC = [[MainVCViewController alloc]init];
-    MainNavigationController *mainNotVC = [[MainNavigationController alloc]initWithRootViewController:mainVC];
-    [self presentViewController:mainNotVC animated:YES completion:nil];
-    NSLog(@"BUTTON可以点击");
+    RootViewController *rootVC = [[RootViewController alloc]init];
+    [self presentViewController:rootVC animated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

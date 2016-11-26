@@ -103,7 +103,7 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:@"changeAddress"
                                                        object:nil
                                                      userInfo:@{@"city":city}];
-    NSLog(@"呵呵");
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

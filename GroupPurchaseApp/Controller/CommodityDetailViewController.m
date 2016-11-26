@@ -7,8 +7,8 @@
 //
 
 #import "CommodityDetailViewController.h"
-#import "UIImageView+WebCache.h"
 #import "WebDetailViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface CommodityDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;

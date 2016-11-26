@@ -25,16 +25,7 @@
         
         self.frame = [UIScreen mainScreen].bounds;
         self.sortModelArray = [SortModel getSortData];
-        //if(!_contentView){
-            //_contentView = [UIView new];
-            //_contentView.backgroundColor = [UIColor blackColor];
-           // _contentView.alpha = 0.3;
-            //_contentView.alpha = 0.5;
-            //[self addSubview:_contentView];
-//            [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.edges.equalTo(self);
-//            }];
-        
+    
             if(!_headView){
                 _headView =({
                     UIView *headView = [[UIView alloc]init];
@@ -82,10 +73,7 @@
                     make.bottom.left.right.equalTo(self);
                     make.top.equalTo(_sortTableView.mas_bottom);
                 }];
-                
             }
-        
-        NSLog(@"%@",self.sortModelArray);
     }
     return self;
 }
@@ -104,7 +92,6 @@
 
 - (void)showShareView{
     [[UIApplication sharedApplication].keyWindow addSubview:self];
-    NSLog(@"%@",self);
     //d动画效果
     //CGPoint endCenter = self.center;
     //NSLog(@"这里的CENTER 是%f,%f",endCenter.x,endCenter.y);

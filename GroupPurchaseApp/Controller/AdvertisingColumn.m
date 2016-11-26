@@ -7,6 +7,7 @@
 //
 
 #import "AdvertisingColumn.h"
+#import "GroupPurchaseAppHeader.h"
 @interface AdvertisingColumn()<UIScrollViewDelegate>{
     NSTimer *_timer;
 }
@@ -106,8 +107,7 @@
         for (int i = 0; i<_totalNum; i++) {
             UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(i*CGRectGetWidth(_scrollView.frame), 0, CGRectGetWidth(_scrollView.frame), CGRectGetHeight(_scrollView.frame))];
             img.contentMode = UIViewContentModeScaleAspectFill;
-            img.image = [UIImage imageNamed:imgArray[i]];
-            //img.backgroundColor = imgArray[i];
+            [img sd_setImageWithURL:imgArray[i]];
             [img setTag:i];
             [_scrollView addSubview:img];
         }
