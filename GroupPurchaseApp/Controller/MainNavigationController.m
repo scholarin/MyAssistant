@@ -7,7 +7,7 @@
 //
 
 #import "MainNavigationController.h"
-
+#import "GroupPurchaseAppHeader.h"
 @interface MainNavigationController ()
 
 @end
@@ -16,9 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UINavigationBar *bar = [UINavigationBar appearance];
-    [bar setBackgroundImage:[UIImage imageNamed:@"bg_navigationBar_normal"] forBarMetrics:UIBarMetricsDefault];
     
+    //UINavigationBar *bar = [UINavigationBar appearance];
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_navigationBar_normal"] forBarMetrics:UIBarMetricsDefault];
     // Do any additional setup after loading the view.
 }
 

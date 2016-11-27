@@ -21,6 +21,7 @@
 #import "CommodityDetailViewController.h"
 
 #import "Masonry.h"
+#import "SDImageCache.h"
 
 #define kLightGreenColor [UIColor colorWithRed:51/255.0 green:204/255.0 blue:204/255.0 alpha:1]
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -49,8 +50,11 @@
     
     [self addNavigationBarItems];
     [self addOBserver];
-    
     [self creatRequest];
+    
+    
+    NSString *pate = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    NSLog(@"%@",pate);
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -276,6 +280,7 @@
     
     DPAPI *api = [[DPAPI alloc]init];
     [api requestWithURL:@"v1/deal/find_deals" params:self.requestParamsDict delegate:self];
+    NSLog(@"%@%@",self.requestParamsDict[@"category"],self.requestParamsDict[@"city"]);
 }
 
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{

@@ -11,7 +11,7 @@
 #import "SearchResultController.h"
 #import "UIView+AutoLayout.h"
 
-@interface ChangeCityViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
+@interface ChangeCityViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,SearchResultControllerDelegate>
 @property (strong, nonatomic)NSArray *CityGroupArray;
 @property (weak, nonatomic) IBOutlet UIView *coverView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -59,6 +59,7 @@
 - (SearchResultController *)searchResultVC{
     if(!_searchResultVC ){
         _searchResultVC = [[SearchResultController alloc]init];
+        _searchResultVC.delegate = self;
         [self.view addSubview:_searchResultVC.view];
         
         //UIView+AutoLayout 库中的函数 设置其和父视图或者兄弟视图的间距
@@ -132,6 +133,9 @@
 }
 
 
+- (void)dismissSearchResultControllSuperView{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self];

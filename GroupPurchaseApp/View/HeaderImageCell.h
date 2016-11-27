@@ -1,5 +1,5 @@
 //
-//  MeViewController.h
+//  HeaderImageCell
 //  GroupPurchaseApp
 //
 //  Created by MosinNagant on 2016/11/27.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MeViewController : UITableViewController
+@interface HeaderImageCell : UITableViewCell
 
 @end

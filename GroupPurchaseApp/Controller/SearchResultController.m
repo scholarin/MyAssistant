@@ -79,9 +79,16 @@
                                                        object:nil
                                                      userInfo:@{@"city":city}];
     
-    
-    [self.view.superview removeFromSuperview];
+    [self.delegate dismissSearchResultControllSuperView];
+    //[self.view.superview removeFromSuperview];
 }
+
+
+
+
+
+
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -139,7 +139,7 @@ typedef NS_ENUM(NSInteger, ShowContentStyle){
         _contentTabelView.dataSource = self;
         _contentTabelView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _contentTabelView.separatorColor = kLightGreenColor;
-        
+        _contentTabelView.showsVerticalScrollIndicator = NO;
         //注册所有的CELL
         [self.contentTabelView registerClass:[JokeTextCell class] forCellReuseIdentifier:kJokeTextCell];
         [self.contentTabelView registerClass:[NewsCell class] forCellReuseIdentifier:KNewsCell];
@@ -161,21 +161,30 @@ typedef NS_ENUM(NSInteger, ShowContentStyle){
     [self.contentTabelView.mj_header endRefreshing];
     switch (_showcontentStyle) {
         case ShowContentStyleJoke:{
+            if(_jokeTexts > 0){
             //当remove全部数据时 addobjectformarray 会报错，因此留一个数据
-            [_jokeTexts removeObjectsInRange:NSMakeRange(0, _jokeTexts.count - 1)];
+                [_jokeTexts removeObjectsInRange:NSMakeRange(0, _jokeTexts.count - 1)];
+            }
             [self requestJokeContent];
+            
         }
             break;
         case ShowContentStyleNew:{
-            [_newsContentArray removeObjectsInRange:NSMakeRange(0, _newsContentArray.count - 1)];
+            if(_newsContentArray > 0){
+                [_newsContentArray removeObjectsInRange:NSMakeRange(0, _newsContentArray.count - 1)];
+            }
             [self requestNewContent];
         }
             break;
         case ShowContentStyleWechat:{
-            [_wechatContentArray removeObjectsInRange:NSMakeRange(0, _wechatContentArray.count - 1)];
+            if(_wechatContentArray > 0){
+                [_wechatContentArray removeObjectsInRange:NSMakeRange(0, _wechatContentArray.count - 1)];
+            }
             [self requestWechatContent];
         }
             break;
+        case ShowContentStyleAnotherToday:
+            [self requstHistoryTodayContent];
         default:
             break;
     }
