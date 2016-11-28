@@ -20,19 +20,14 @@
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     BOOL hasBeingStart = [[NSUserDefaults standardUserDefaults]boolForKey:@"hasBeingStart"];
-    NSLog(@"%i",hasBeingStart);
-    
-   
-    if( hasBeingStart){
-        RootViewController *rootViewController = [[RootViewController alloc]init];
-        self.window.rootViewController = rootViewController;
-    }else{
+//    if( hasBeingStart){
+//        RootViewController *rootViewController = [[RootViewController alloc]init];
+//        self.window.rootViewController = rootViewController;
+//    }else{
         FirstLuanchViewController *firstVC = [[FirstLuanchViewController alloc]init];
-        self.window.rootViewController = firstVC;
-    }
-    
+    self.window.rootViewController = firstVC;
+    //}
     [self.window makeKeyAndVisible];
-    
     // Override point for customization after application launch.
     return YES;
 }

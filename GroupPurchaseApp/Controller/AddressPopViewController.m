@@ -49,8 +49,6 @@
 
 
 - (void)toDismiss{
-#warning 这里的视图为什么不消失呢
-    NSLog(@"视图为什么不消失");
     self.isDismiss = YES;
 }
 

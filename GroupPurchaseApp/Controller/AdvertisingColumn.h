@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#warning 暂时还没用
 @interface AdvertisingColumn : UIView
 
 - (void)setArray:(NSArray *)imgArray;

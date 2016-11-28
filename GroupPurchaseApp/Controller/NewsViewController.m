@@ -41,7 +41,6 @@ typedef NS_ENUM(NSInteger, ShowContentStyle){
 @property (strong, nonatomic) HTHorizontalSelectionList *selectionList;
 @property (strong, nonatomic) UITableView *contentTabelView;
 @property (strong, nonatomic) MJRefreshAutoFooter *refreshFooter;
-
 @property (assign, nonatomic) ShowContentStyle showcontentStyle;
 @end
 
@@ -69,7 +68,7 @@ typedef NS_ENUM(NSInteger, ShowContentStyle){
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"资讯";
-    _selectionListTitles = @[@" 新闻头条 ",@" 笑话大全 ",@" 微信精选 ",@" 昨日重现 "];
+    _selectionListTitles = @[@"新闻头条",@"笑话大全",@"微信精选",@"昨日重现"];
     [self showJokeTableView];
     [self showSelectionList];
     [self requestNewContent];
@@ -82,7 +81,6 @@ typedef NS_ENUM(NSInteger, ShowContentStyle){
     
     _wechatpage = 1;
     _wechatContentArray = [NSMutableArray new];
-    
     
     //获取当前时间进行请求
     NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -161,7 +159,7 @@ typedef NS_ENUM(NSInteger, ShowContentStyle){
     [self.contentTabelView.mj_header endRefreshing];
     switch (_showcontentStyle) {
         case ShowContentStyleJoke:{
-            if(_jokeTexts > 0){
+            if(_jokeTexts.count > 0){
             //当remove全部数据时 addobjectformarray 会报错，因此留一个数据
                 [_jokeTexts removeObjectsInRange:NSMakeRange(0, _jokeTexts.count - 1)];
             }
@@ -170,14 +168,14 @@ typedef NS_ENUM(NSInteger, ShowContentStyle){
         }
             break;
         case ShowContentStyleNew:{
-            if(_newsContentArray > 0){
+            if(_newsContentArray.count > 0){
                 [_newsContentArray removeObjectsInRange:NSMakeRange(0, _newsContentArray.count - 1)];
             }
             [self requestNewContent];
         }
             break;
         case ShowContentStyleWechat:{
-            if(_wechatContentArray > 0){
+            if(_wechatContentArray.count > 0){
                 [_wechatContentArray removeObjectsInRange:NSMakeRange(0, _wechatContentArray.count - 1)];
             }
             [self requestWechatContent];

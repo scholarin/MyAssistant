@@ -49,7 +49,7 @@
 		20EAD0291DE2140A00E29EF5 /* CommodityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20EAD0271DE2140A00E29EF5 /* CommodityDetailViewController.xib */; };
 		20EAD0331DE2B44100E29EF5 /* SortTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20EAD0321DE2B44100E29EF5 /* SortTableView.m */; };
 		20EAD0361DE2B48400E29EF5 /* SortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20EAD0351DE2B48400E29EF5 /* SortModel.m */; };
-		518697FE1DEB0C9500649BB7 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 518697FD1DEB0C9500649BB7 /* Storyboard.storyboard */; };
+		5149285D1DEBF620000322C4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5149285C1DEBF620000322C4 /* Launch Screen.storyboard */; };
 		51BB640C1DE8644E00D9DDD8 /* JokeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BB640B1DE8644E00D9DDD8 /* JokeModel.m */; };
 		51BB64111DE89C3700D9DDD8 /* UILabel+Height.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BB64101DE89C3700D9DDD8 /* UILabel+Height.m */; };
 		51BB64141DE8A3CA00D9DDD8 /* JokeImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BB64131DE8A3CA00D9DDD8 /* JokeImageCell.m */; };
@@ -66,8 +66,6 @@
 		51BB645F1DEA0E0800D9DDD8 /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BB645D1DEA0E0800D9DDD8 /* DPRequest.m */; };
 		51BB64651DEAB0E200D9DDD8 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BB64631DEAB0E200D9DDD8 /* MeViewController.m */; };
 		51BB64691DEAB5CB00D9DDD8 /* HeaderImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BB64681DEAB5CB00D9DDD8 /* HeaderImageCell.m */; };
-		51BB646B1DEABA8200D9DDD8 /* header.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51BB646A1DEABA8200D9DDD8 /* header.gif */; };
-		51BB646D1DEAC58400D9DDD8 /* QRcode@2x.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 51BB646C1DEAC58400D9DDD8 /* QRcode@2x.JPG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,7 +141,7 @@
 		20EAD0321DE2B44100E29EF5 /* SortTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortTableView.m; sourceTree = "<group>"; };
 		20EAD0341DE2B48400E29EF5 /* SortModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortModel.h; sourceTree = "<group>"; };
 		20EAD0351DE2B48400E29EF5 /* SortModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortModel.m; sourceTree = "<group>"; };
-		518697FD1DEB0C9500649BB7 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		5149285C1DEBF620000322C4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		51BB640A1DE8644E00D9DDD8 /* JokeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokeModel.h; sourceTree = "<group>"; };
 		51BB640B1DE8644E00D9DDD8 /* JokeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeModel.m; sourceTree = "<group>"; };
 		51BB640F1DE89C3700D9DDD8 /* UILabel+Height.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Height.h"; sourceTree = "<group>"; };
@@ -177,8 +175,6 @@
 		51BB64631DEAB0E200D9DDD8 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		51BB64671DEAB5CB00D9DDD8 /* HeaderImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderImageCell.h; sourceTree = "<group>"; };
 		51BB64681DEAB5CB00D9DDD8 /* HeaderImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderImageCell.m; sourceTree = "<group>"; };
-		51BB646A1DEABA8200D9DDD8 /* header.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = header.gif; sourceTree = "<group>"; };
-		51BB646C1DEAC58400D9DDD8 /* QRcode@2x.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "QRcode@2x.JPG"; sourceTree = "<group>"; };
 		C9D420652FF15EBD9DA00848 /* Pods-GroupPurchaseApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupPurchaseApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroupPurchaseApp/Pods-GroupPurchaseApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F69067418BAAF58AD2D0579A /* Pods-GroupPurchaseApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupPurchaseApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroupPurchaseApp/Pods-GroupPurchaseApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,7 +228,7 @@
 			name = FirstView;
 			sourceTree = "<group>";
 		};
-		209181C01DE7196A00D0D27F /* scondView */ = {
+		209181C01DE7196A00D0D27F /* secondView */ = {
 			isa = PBXGroup;
 			children = (
 				209181D51DE7FFA900D0D27F /* NewsViewController.h */,
@@ -242,7 +238,7 @@
 				51BB642A1DE9DAC500D9DDD8 /* HistoryTodayDetailViewController.h */,
 				51BB642B1DE9DAC500D9DDD8 /* HistoryTodayDetailViewController.m */,
 			);
-			name = scondView;
+			name = secondView;
 			sourceTree = "<group>";
 		};
 		209181C41DE71CCC00D0D27F /* firstControllerView */ = {
@@ -289,8 +285,6 @@
 		20DEF52C1DDF49D900D4B5FC = {
 			isa = PBXGroup;
 			children = (
-				51BB646C1DEAC58400D9DDD8 /* QRcode@2x.JPG */,
-				51BB646A1DEABA8200D9DDD8 /* header.gif */,
 				20DEF5371DDF49D900D4B5FC /* GroupPurchaseApp */,
 				20DEF5361DDF49D900D4B5FC /* Products */,
 				112D86F14BF58E946FB34138 /* Frameworks */,
@@ -316,9 +310,9 @@
 				20DEF5731DDF7D1600D4B5FC /* View */,
 				20DEF53B1DDF49D900D4B5FC /* AppDelegate.h */,
 				20DEF53C1DDF49D900D4B5FC /* AppDelegate.m */,
-				518697FD1DEB0C9500649BB7 /* Storyboard.storyboard */,
 				209181D91DE809E900D0D27F /* GroupPurchaseAppHeader.h */,
 				20DEF5441DDF49D900D4B5FC /* Assets.xcassets */,
+				5149285C1DEBF620000322C4 /* Launch Screen.storyboard */,
 				20DEF5381DDF49D900D4B5FC /* Supporting Files */,
 			);
 			path = GroupPurchaseApp;
@@ -338,7 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				209181BE1DE7193400D0D27F /* FirstView */,
-				209181C01DE7196A00D0D27F /* scondView */,
+				209181C01DE7196A00D0D27F /* secondView */,
 				51BB64311DE9F5EF00D9DDD8 /* meView */,
 				207F42B01DE56C04001A15DF /* FirstLuanchViewController.h */,
 				207F42B11DE56C04001A15DF /* FirstLuanchViewController.m */,
@@ -352,16 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				51BB640D1DE8645600D9DDD8 /* firstView */,
-				51BB640A1DE8644E00D9DDD8 /* JokeModel.h */,
-				51BB640B1DE8644E00D9DDD8 /* JokeModel.m */,
-				51BB64161DE9458100D9DDD8 /* NewsModel.h */,
-				51BB64171DE9458100D9DDD8 /* NewsModel.m */,
-				51BB64211DE9852100D9DDD8 /* WechatModel.h */,
-				51BB64221DE9852100D9DDD8 /* WechatModel.m */,
-				51BB64271DE996D600D9DDD8 /* HistoryTodayModel.h */,
-				51BB64281DE996D600D9DDD8 /* HistoryTodayModel.m */,
-				51BB642D1DE9E0DF00D9DDD8 /* HistoryTodayDetailModel.h */,
-				51BB642E1DE9E0DF00D9DDD8 /* HistoryTodayDetailModel.m */,
+				514928561DEB62D3000322C4 /* secondView */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -369,10 +354,10 @@
 		20DEF5731DDF7D1600D4B5FC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				209181C61DE71D0C00D0D27F /* secondControllerView */,
-				209181C41DE71CCC00D0D27F /* firstControllerView */,
 				51BB64671DEAB5CB00D9DDD8 /* HeaderImageCell.h */,
 				51BB64681DEAB5CB00D9DDD8 /* HeaderImageCell.m */,
+				209181C61DE71D0C00D0D27F /* secondControllerView */,
+				209181C41DE71CCC00D0D27F /* firstControllerView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -448,6 +433,23 @@
 				F69067418BAAF58AD2D0579A /* Pods-GroupPurchaseApp.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		514928561DEB62D3000322C4 /* secondView */ = {
+			isa = PBXGroup;
+			children = (
+				51BB640A1DE8644E00D9DDD8 /* JokeModel.h */,
+				51BB640B1DE8644E00D9DDD8 /* JokeModel.m */,
+				51BB64161DE9458100D9DDD8 /* NewsModel.h */,
+				51BB64171DE9458100D9DDD8 /* NewsModel.m */,
+				51BB64211DE9852100D9DDD8 /* WechatModel.h */,
+				51BB64221DE9852100D9DDD8 /* WechatModel.m */,
+				51BB64271DE996D600D9DDD8 /* HistoryTodayModel.h */,
+				51BB64281DE996D600D9DDD8 /* HistoryTodayModel.m */,
+				51BB642D1DE9E0DF00D9DDD8 /* HistoryTodayDetailModel.h */,
+				51BB642E1DE9E0DF00D9DDD8 /* HistoryTodayDetailModel.m */,
+			);
+			name = secondView;
 			sourceTree = "<group>";
 		};
 		51BB640D1DE8645600D9DDD8 /* firstView */ = {
@@ -553,12 +555,10 @@
 				209181AC1DE5C6E500D0D27F /* MainCateoryCollectionViewCell.xib in Resources */,
 				20DEF5891DDF7D8300D4B5FC /* sorts.plist in Resources */,
 				20DEF5C21DE1A71500D4B5FC /* CommidityCollectionViewCell.xib in Resources */,
+				5149285D1DEBF620000322C4 /* Launch Screen.storyboard in Resources */,
 				20DEF57E1DDF7D1600D4B5FC /* MainBarButtonItem.xib in Resources */,
 				20DEF5A01DE00F0500D4B5FC /* AddressPopViewController.xib in Resources */,
-				518697FE1DEB0C9500649BB7 /* Storyboard.storyboard in Resources */,
 				20DEF5881DDF7D8300D4B5FC /* cityGroups.plist in Resources */,
-				51BB646D1DEAC58400D9DDD8 /* QRcode@2x.JPG in Resources */,
-				51BB646B1DEABA8200D9DDD8 /* header.gif in Resources */,
 				20DEF5871DDF7D8300D4B5FC /* cities.plist in Resources */,
 				20DEF5861DDF7D8300D4B5FC /* categories.plist in Resources */,
 				20DEF5981DDF89FB00D4B5FC /* PopModelView.xib in Resources */,

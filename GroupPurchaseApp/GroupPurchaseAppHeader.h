@@ -17,8 +17,8 @@
 #define kScreen_Bounds [UIScreen mainScreen].bounds
 #define kScreen_Height [UIScreen mainScreen].bounds.size.height
 #define kScreen_Width [UIScreen mainScreen].bounds.size.width
-#define kLightGreenColor [UIColor colorWithRed:51/255.0 green:204/255.0 blue:204/255.0 alpha:1]
-
+#define kLightGreenColor [UIColor colorWithRed:51/255.0     green:204/255.0     blue:204/255.0      alpha:1]
+#define kBackGroundColor [UIColor colorWithRed:230/255.0    green:230/255.0     blue:230/255.0      alpha:1]
 
 #define kJokeTextAPI @"http://japi.juhe.cn/joke/content/text.from?key=b579b784b12121dd43a719e8004f5d66&pagesize=20"
 /*

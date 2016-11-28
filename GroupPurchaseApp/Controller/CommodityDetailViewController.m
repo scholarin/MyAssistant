@@ -34,26 +34,24 @@
 }
 
 - (IBAction)favoiteCommodity:(id)sender {
+    WebDetailViewController *webVC = [[WebDetailViewController alloc]init];
+    webVC.h5_url  = self.dataModel.h5_url;
+    [self.navigationController pushViewController:webVC animated:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon_back_highlighted"] style:UIBarButtonItemStyleDone target:self action:@selector(goBack)];
-    self.navigationItem.leftBarButtonItem = item;
-    
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"网页详情" style:UIBarButtonItemStyleDone target:self action:@selector(showDetail)] ;
-    rightItem.tintColor = [UIColor colorWithRed:51/255.0 green:204/255.0 blue:204/255.0 alpha:1];
-    self.navigationItem.rightBarButtonItem = rightItem;
-}
+//- (void)viewWillAppear:(BOOL)animated{
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon_back_highlighted"] style:UIBarButtonItemStyleDone target:self action:@selector(goBack)];
+//    self.navigationItem.leftBarButtonItem = item;
+//    
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"网页详情" style:UIBarButtonItemStyleDone target:self action:@selector(showDetail)] ;
+//    rightItem.tintColor = [UIColor colorWithRed:51/255.0 green:204/255.0 blue:204/255.0 alpha:1];
+//    self.navigationItem.rightBarButtonItem = rightItem;
+//}
 
 - (void)goBack{
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)showDetail{
-    WebDetailViewController *webVC = [[WebDetailViewController alloc]init];
-    webVC.h5_url  = self.dataModel.h5_url;
-    [self.navigationController pushViewController:webVC animated:YES];
-}
 /*
 #pragma mark - Navigation
 

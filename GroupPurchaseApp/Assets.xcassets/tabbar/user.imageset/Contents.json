@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "user.png",
+      "filename" : "Contacts_36cccc_25.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Contacts_36cccc_50.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Contacts_36cccc_75.png",
       "scale" : "3x"
     }
   ],

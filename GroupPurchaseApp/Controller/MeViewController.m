@@ -19,14 +19,19 @@
 
 @implementation MeViewController{
     NSArray *_cellContents;
+    NSDictionary *_infoDic;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我";
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[HeaderImageCell class] forCellReuseIdentifier:kHeaderCell] ;
     _cellContents = @[@[@"二维码",@"收藏夹"],
                       @[@"清理缓存",@"关于我"]];
+    _infoDic = @{ @"email"  : @"scholarinfarm@gmail.com",
+                  @"wechat" : @"sneaker1101"};
+    
     self.tableView.scrollEnabled = NO;
     
     // Uncomment the following line to preserve selection between presentations.
@@ -52,6 +57,8 @@
     NSUInteger count;
     if(section == 0){
         count = 1;
+    }else if(section == 1){
+        count = 4;
     }else{
         count = 2;
     }
@@ -64,28 +71,57 @@
 
     if(indexPath.section == 0){
         cell = [tableView dequeueReusableCellWithIdentifier:kHeaderCell forIndexPath:indexPath];
-    }else if(indexPath.section == 2 && indexPath.row == 0){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
-        if(!cell){
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cellID"];
+    }else if(indexPath.section == 1){
+        if(indexPath.row < 2){
+            cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+            if(!cell){
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cellID"];
+            }
+            
+            cell.textLabel.font = [UIFont systemFontOfSize:13];
+            cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
+            if(indexPath.row == 0){
+                cell.detailTextLabel.text = [_infoDic objectForKey:@"wechat"];
+                cell.textLabel.text = @"微信号";
+            }else{
+                cell.detailTextLabel.text = [_infoDic objectForKey:@"email"];
+                cell.textLabel.text = @"电子邮箱";
+            }
+        } else {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+            if(!cell){
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID"];
+            }
+            cell.textLabel.text = _cellContents[indexPath.section - 1][indexPath.row-2];
+            cell.textLabel.font = [UIFont systemFontOfSize:13];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
-        cell.textLabel.text = _cellContents[indexPath.section - 1][indexPath.row];
-        cell.textLabel.font = [UIFont systemFontOfSize:13];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.detailTextLabel.text = [self getCacheSizeToString];
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
-        int i = 1;
     }else{
-        cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
-        if(!cell){
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID"];
+        if(indexPath.row == 0){
+            cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+            if(!cell){
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cellID"];
+            }
+            cell.textLabel.text = _cellContents[indexPath.section - 1][indexPath.row];
+            cell.textLabel.font = [UIFont systemFontOfSize:13];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.detailTextLabel.text = [self getCacheSizeToString];
+            cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
+        }else{
+            cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+            if(!cell){
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID"];
+            }
+            cell.textLabel.text = _cellContents[indexPath.section - 1][indexPath.row];
+            cell.textLabel.font = [UIFont systemFontOfSize:13];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
         }
-        cell.textLabel.text = _cellContents[indexPath.section - 1][indexPath.row];
-        cell.textLabel.font = [UIFont systemFontOfSize:13];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     return cell;
 }
+
+
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -101,7 +137,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     CGFloat footerHeight;
     if(section == 2) {
-        footerHeight = kScreen_Height - 100 - 30 *4 - 20 * 3 - 64 - 40;
+        footerHeight = kScreen_Height - 64 - 15 * 3 - 100 - 30 * 6 - 49;
     }
     return footerHeight;
 }
@@ -112,7 +148,7 @@
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    if(indexPath.section == 0 ){
+    if(indexPath.section == 0 || (indexPath.section == 1 && indexPath.row < 2)){
         indexPath = nil;
     }
     return indexPath;
@@ -120,12 +156,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 1){
-        if(indexPath.row == 0){
+        if(indexPath.row == 2){
             UIViewController *VC = [[UIViewController alloc]init];
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:kScreen_Bounds];
             imageView.backgroundColor = [UIColor whiteColor];
             imageView.contentMode = UIViewContentModeTop;
-            imageView.image = [UIImage imageNamed:@"QRcode.JPG"];
+            imageView.image = [UIImage imageNamed:@"QRcode"];
             [VC.view addSubview:imageView];
             [self.navigationController pushViewController:VC animated:YES];
         }else{
@@ -150,12 +186,17 @@
         if(indexPath.row == 0){
             [self showClearAlertController];
         }else{
-            
+        UIViewController *VC = [[UIViewController alloc]init];
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:kScreen_Bounds];
+        imageView.backgroundColor = [UIColor whiteColor];
+        imageView.contentMode = UIViewContentModeScaleToFill;
+        imageView.image = [UIImage imageNamed:@"profile"];
+        [VC.view addSubview:imageView];
+        [self.navigationController pushViewController:VC animated:YES];
         }
     }
     
 }
-
 
 
 - (void)showClearAlertController{
@@ -193,64 +234,5 @@
     return string;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

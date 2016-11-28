@@ -65,7 +65,7 @@
         [_delegate request:self didReceiveRawData:data];
     }
     
-#warning 去除对SBJson的依赖
+
     NSError *error = nil;
     id result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
     if (result == nil) {
@@ -85,7 +85,7 @@
 		} else {
 			if ([status isEqualToString:@"ERROR"]) {
 				// TODO: 处理错误代码
-#warning 增加错误处理
+
                 NSDictionary *errorDict = result[@"error"];
                 int errorCode = [errorDict[@"errorCode"] intValue];
                 NSString *errorMessage = errorDict[@"errorMessage"];

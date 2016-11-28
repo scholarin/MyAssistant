@@ -52,7 +52,7 @@
     _pageControll.numberOfPages = self.pageNumer;
     _pageControll.center = CGPointMake(kScreen_Width/2, kScreen_Height - 70);
     _pageControll.pageIndicatorTintColor = [UIColor grayColor];
-    _pageControll.currentPageIndicatorTintColor = [UIColor redColor];
+    _pageControll.currentPageIndicatorTintColor = kLightGreenColor;
     _pageControll.currentPage = 0;
     [self.view addSubview:_scrollView];
     [self.view addSubview:_pageControll];
@@ -60,14 +60,14 @@
     _startButton = [UIButton new];
     _startButton.center = CGPointMake(kScreen_Width / 2, kScreen_Height - 10);
     CGFloat buttonHeight = 30;
-    CGFloat buttonWidth = 100;
+    CGFloat buttonWidth = 200;
     _startButton.frame = CGRectMake((kScreen_Width - buttonWidth)/2,kScreen_Height-20-buttonHeight,buttonWidth,buttonHeight);
     
     
-    UIColor *color = [UIColor colorWithRed:169/255.0 green:177/255.0 blue:135/255.0 alpha:1.0];
+    UIColor *color = kLightGreenColor;
     _startButton.backgroundColor = [UIColor clearColor];
-    [_startButton setTitle:@"我想知道⇢" forState:UIControlStateNormal];
-    [_startButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_startButton setTitle:@"去看看……" forState:UIControlStateNormal];
+    [_startButton setTitleColor:kLightGreenColor forState:UIControlStateNormal];
     
     _startButton.layer.cornerRadius = buttonHeight /2;
     _startButton.layer.borderWidth = 1.0;
@@ -89,7 +89,8 @@
         [self.scrollView addSubview:imageView];
         if(i == 0){
             UILabel *label = [[UILabel alloc]init];
-            label.text = @"        鲁滨逊第四次航海时，船在途中遇到风暴触礁，船上水手、乘客等全部遇难，唯有鲁滨逊幸存，只身漂流到一个杳无人烟的孤岛上。此时他面临着人生的三大难题……";
+            label.text = @"        手机上的APP种类越来越多，功能越来越复杂，每个APP似乎都有一些怎么也用不到的功能在那里，你见或者不见。可其实我们每天面临的只有三大问题……";
+            label.textColor = kLightGreenColor;
             label.numberOfLines = 0;
             [imageView addSubview:label];
             
@@ -101,12 +102,13 @@
         }else{
             UILabel *label = [[UILabel alloc]init];
             if(i == 1){
-                label.text = @"以后吃什么？";
+                label.text = @"每天吃什么？";
             }else if(i == 2){
-                label.text = @"以后看什么？";
+                label.text = @"每天看什么？";
             }else{
-                label.text = @"以后干什么？";
+                label.text = @"每天干什么？";
             }
+            label.textColor = kLightGreenColor;
             label.numberOfLines = 0;
             label.font = [UIFont systemFontOfSize:30];
             
@@ -141,6 +143,8 @@
     self.pageControll.currentPage = page;
     if(self.pageControll.currentPage == self.pageNumer - 1){
         self.startButton.hidden = NO;
+    }else{
+        self.startButton.hidden = YES;
     }
 }
 /*

@@ -19,7 +19,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
         UIImageView *imageView = [[UIImageView alloc]init];
-        imageView.image  = [UIImage imageNamed:@"header.gif"];
+        imageView.image  = [UIImage imageNamed:@"header"];
         [self addSubview: imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.top.equalTo(self).offset(10);

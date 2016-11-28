@@ -19,6 +19,7 @@
     
     //UINavigationBar *bar = [UINavigationBar appearance];
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_navigationBar_normal"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setTintColor:kLightGreenColor];
     // Do any additional setup after loading the view.
 }
 

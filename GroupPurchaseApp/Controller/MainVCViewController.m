@@ -22,6 +22,7 @@
 
 #import "Masonry.h"
 #import "SDImageCache.h"
+#import "MJRefresh.h"
 
 #define kLightGreenColor [UIColor colorWithRed:51/255.0 green:204/255.0 blue:204/255.0 alpha:1]
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -52,10 +53,6 @@
     [self addOBserver];
     [self creatRequest];
     
-    
-    NSString *pate = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-    NSLog(@"%@",pate);
-    
     self.view.backgroundColor = [UIColor whiteColor];
     
     // Do any additional setup after loading the view from its nib.
@@ -65,6 +62,7 @@
     if(!_categoryCollectionView){
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
         _categoryCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 300) collectionViewLayout:layout];
+        _categoryCollectionView.scrollEnabled = NO;
         layout.footerReferenceSize = CGSizeMake(kScreenWidth, 20);
         layout.itemSize = CGSizeMake(50, 70);
         layout.minimumLineSpacing = (kScreenWidth - 4 * 50)/5;
@@ -107,6 +105,8 @@
         [_refreshControl addTarget:self action:@selector(updateLoad) forControlEvents:UIControlEventValueChanged];
     }
     
+    _listTableView.mj_footer = [MJRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+    
     //[_listTableView addSubview:_refreshControl];
 }
 
@@ -123,6 +123,7 @@
 
 //加载更多
 - (void)loadMore{
+    [self.listTableView.mj_footer endRefreshing];
     self.isLoadMore = YES;
     int page = [self.requestParamsDict[@"page"] intValue];
     page ++;
@@ -153,7 +154,7 @@
 
 #pragma mark - navigationControllerItem
 - (void)addNavigationBarItems{
-    UIBarButtonItem *imageItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon_meituan_logo"] style:UIBarButtonItemStyleDone target:nil action:nil];
+    UIBarButtonItem *imageItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"main_logo"] style:UIBarButtonItemStyleDone target:nil action:nil];
     imageItem.enabled = NO;
     
     MainBarButtonItem *typeItemView = [MainBarButtonItem shareButtonItem];
@@ -223,7 +224,12 @@
 
 - (void)categoryChange:(NSNotification *)not{
     NSString *category = not.userInfo[@"category"];
-    [self.requestParamsDict setObject:category forKey:@"category"];
+    if([category isEqualToString:@"全部分类"]){
+        [self.requestParamsDict removeObjectForKey:@"category"];
+    }else{
+        [self.requestParamsDict setObject:category forKey:@"category"];
+    }
+    
     [self.requestParamsDict setObject:@1 forKey:@"page"];
     //更改BarbuttonItem文字
     [self replaceBarButtonItemTitle:category subTitle:@"全部" target:@selector(typeItemClick) atIndex:1 ];
@@ -346,6 +352,9 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self replaceBarButtonItemTitle:self.cateorysForCollectionCell[indexPath.item][@"name"] subTitle:@"全部" target:@selector(typeItemClick) atIndex:1];
+    
     if(indexPath.item == 0){
         [self.requestParamsDict removeObjectForKey:@"category"];
     }else{
@@ -384,17 +393,17 @@
     return view;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
-    view.backgroundColor = [UIColor lightGrayColor];
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
-    [button setTitle:@"------ 点击加载更多 ------" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(loadMore) forControlEvents:UIControlEventTouchUpInside];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:13];
-    [view addSubview:button];
-    return view;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+//    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
+//    view.backgroundColor = [UIColor lightGrayColor];
+//    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
+//    [button setTitle:@"------ 点击加载更多 ------" forState:UIControlStateNormal];
+//    [button addTarget:self action:@selector(loadMore) forControlEvents:UIControlEventTouchUpInside];
+//    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    button.titleLabel.font = [UIFont systemFontOfSize:13];
+//    [view addSubview:button];
+//    return view;
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     CommodityDetailViewController *vc = [[CommodityDetailViewController alloc]init];

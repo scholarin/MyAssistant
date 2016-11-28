@@ -13,7 +13,6 @@
 
 @interface DPRequest : NSObject
 
-#warning 增加2个请求的block
 @property (nonatomic, copy) void (^success)(id json);
 @property (nonatomic, copy) void (^failure)(NSError *error);
 
